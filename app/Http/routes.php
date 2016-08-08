@@ -30,7 +30,6 @@ $api->group(['middleware' => ['api']], function ($api) {
     $api->post('auth/password/reset', 'Auth\PasswordResetController@reset');
 
     $api->resource('user', 'UserController');
-    $api->resource('course', 'CourseController');
 });
 
 //protected API routes with JWT (must be logged in)
