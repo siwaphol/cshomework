@@ -28,7 +28,6 @@
 
     <app-view></app-view>
 
-
     <script>
     (function(){
         var link = document.createElement("link");
