@@ -32,7 +32,7 @@ $api->group(['middleware' => ['api']], function ($api) {
     $api->resource('user', 'UserController');
 
     // Course Controller
-    $api->post('courses', 'CourseController@create');
+    $api->resource('courses', 'CourseController');
 });
 
 //protected API routes with JWT (must be logged in)
