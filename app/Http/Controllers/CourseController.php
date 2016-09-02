@@ -11,12 +11,14 @@ class CourseController extends Controller
 {
     public function index()
     {
-        return Course::all();
+        $courses = Course::all();
+        return response()->success(compact('courses'));
     }
 
     public function show($id)
     {
-        return Course::findOrFail($id);
+        $course = Course::findOrFail($id);
+        return response()->success(compact('course'));
     }
 
     public function store(Request $request)

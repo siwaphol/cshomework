@@ -64,8 +64,11 @@ class CourseTest extends TestCase
 
         $this->get('/api/courses')
         ->seeApiSuccess()
-            ->seeJsonObject('courses')
-        ->seeJson($courseMock->toArray());
+            ->seeJsonArray('courses');
+//            ->seeJsonObject('courses');
+//        ->seeJson($courseMock->toArray());
+
+//        dd($this->response->getContent());
 
         $this->get('/api/courses/' . $course->id)
             ->seeApiSuccess()
