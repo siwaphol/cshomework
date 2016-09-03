@@ -33,6 +33,7 @@ $api->group(['middleware' => ['api']], function ($api) {
 
     // Course Controller
     $api->resource('courses', 'CourseController');
+    $api->resource('faculties', 'FacultyController');
 });
 
 //protected API routes with JWT (must be logged in)

@@ -34,3 +34,11 @@ $factory->define(App\Course::class, function (Faker\Generator $faker) {
         'details' => $faker->text(100)
     ];
 });
+
+$factory->define(App\Faculty::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->randomNumber(2),
+        'name_th' => $faker->firstName,
+        'name_en' => $faker->lastName
+    ];
+});

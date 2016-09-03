@@ -7,11 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class CourseTest extends TestCase
 {
     use DatabaseTransactions;
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
+
     public function testStoresCourseSuccessfully()
     {
         $course = factory(App\Course::class)->make();
@@ -65,10 +61,6 @@ class CourseTest extends TestCase
         $this->get('/api/courses')
         ->seeApiSuccess()
             ->seeJsonArray('courses');
-//            ->seeJsonObject('courses');
-//        ->seeJson($courseMock->toArray());
-
-//        dd($this->response->getContent());
 
         $this->get('/api/courses/' . $course->id)
             ->seeApiSuccess()
