@@ -42,3 +42,29 @@ $factory->define(App\Faculty::class, function (Faker\Generator $faker) {
         'name_en' => $faker->lastName
     ];
 });
+
+$factory->define(App\Semester::class, function (Faker\Generator $faker) {
+    return [
+        'semester' => 1,
+        'year' => $faker->year,
+        'in_use' => 1
+    ];
+});
+
+$factory->define(App\Section::class, function (Faker\Generator $faker) {
+    return [
+        'course_id' => str_random(6),
+        'code' => $faker->firstName,
+        'semester_id' => $faker->text(100)
+    ];
+});
+
+$factory->define(App\Homework::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        'details' => $faker->text(100),
+        'assign_date' => $faker->dateTime,
+        'due_date' => $faker->dateTime,
+        'accept_date' => $faker->dateTime,
+    ];
+});

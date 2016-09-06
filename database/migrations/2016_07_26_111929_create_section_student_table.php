@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCourseSectionStudentsTable extends Migration
+class CreateSectionStudentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,13 @@ class CreateCourseSectionStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_section_students', function (Blueprint $table) {
+        Schema::create('section_student', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('course_section_id')->unsigned();
-            $table->foreign('course_section_id')->references('id')->on('course_sections');
-            $table->integer('student_id')->unsigned();
-            $table->foreign('student_id')->references('id')->on('users');
+            $table->integer('section_id')->unsigned();
+            $table->foreign('section_id')->references('id')->on('sections');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             // empty = OK , W, P
             $table->char('status',1)->nullable();
 
@@ -33,6 +33,6 @@ class CreateCourseSectionStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('course_section_students');
+        Schema::drop('section_student');
     }
 }

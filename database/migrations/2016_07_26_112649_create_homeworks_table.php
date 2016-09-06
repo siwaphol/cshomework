@@ -15,8 +15,8 @@ class CreateHomeworksTable extends Migration
         Schema::create('homeworks', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('course_section_id')->unsigned();
-            $table->foreign('course_section_id')->references('id')->on('course_sections');
+            $table->integer('section_id')->unsigned();
+            $table->foreign('section_id')->references('id')->on('sections');
 
             $table->string('name');
             $table->string('details')->nullable();

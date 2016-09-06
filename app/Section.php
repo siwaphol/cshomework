@@ -9,4 +9,6 @@ class Section extends Model
     protected $fillable = [
       'code','course_id','semester_id'
     ];
+
+    public $table = 'course_sections';
 }
