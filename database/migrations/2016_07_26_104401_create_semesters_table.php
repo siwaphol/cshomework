@@ -19,6 +19,8 @@ class CreateSemestersTable extends Migration
             $table->char('year',4);
             $table->tinyInteger('in_use')->default(0);
 
+            $table->unique(['semester', 'year']);
+
             $table->timestamps();
         });
     }
