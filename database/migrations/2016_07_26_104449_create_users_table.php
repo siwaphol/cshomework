@@ -22,7 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('first_name_en')->nullable();
             $table->string('last_name_en')->nullable();
             $table->string('email')->unique();
-            $table->string('faculty_id')->nullable();
+            // เก็บแค่ faculty name ก็พอเพราะเก็บแยกก็ไม่ได้ใช้งาน
+            $table->string('faculty_name')->nullable();
 
             $table->timestamps();
         });
