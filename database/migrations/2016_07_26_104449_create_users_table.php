@@ -22,9 +22,11 @@ class CreateUsersTable extends Migration
             $table->string('first_name_en')->nullable();
             $table->string('last_name_en')->nullable();
             $table->string('email')->unique();
-            // เก็บแค่ faculty name ก็พอเพราะเก็บแยกก็ไม่ได้ใช้งาน
-            $table->string('faculty_name')->nullable();
 
+            $table->integer('faculty_id')->nullable()->unsigned();
+            $table->foreign('faculty_id')->references('id')->on('faculties');
+
+            $table->rememberToken();
             $table->timestamps();
         });
     }
