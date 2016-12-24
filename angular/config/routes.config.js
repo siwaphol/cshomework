@@ -53,6 +53,14 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('app.after-login', {
+            url: '/after-login',
+            views: {
+                'main@': {
+                    templateUrl: getView('after-login')
+                }
+            }
+        })
         .state('app.reset_password', {
             url: '/reset-password/:email/:token',
             views: {
