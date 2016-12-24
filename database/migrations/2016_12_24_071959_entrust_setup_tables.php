@@ -25,12 +25,17 @@ class EntrustSetupTables extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('role_id')->unsigned();
 
+            // แยก users ตามภาคการศึกษา
+            $table->integer('semester_id')->unsigned();
+
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('role_id')->references('id')->on('roles')
                 ->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('semester_id')->references('id')->on('semesters')
+                ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->primary(['user_id', 'role_id']);
+            $table->primary(['user_id', 'role_id', 'semester_id']);
         });
 
         // Create table for storing permissions
