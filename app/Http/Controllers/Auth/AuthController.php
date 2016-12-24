@@ -13,17 +13,22 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $this->validate($request, [
-            'email'    => 'required|email',
-            'password' => 'required|min:8',
+            'email'    => 'required|email'
         ]);
 
         $credentials = $request->only('email', 'password');
 
         try {
-            // verify the credentials and create a token for the user
-            if (! $token = JWTAuth::attempt($credentials)) {
+            $authUser = User::where('email', $credentials['email'])->first();
+
+            if (!$authUser || !$token = JWTAuth::fromUser($authUser)){
                 return response()->error('Invalid credentials', 401);
             }
+
+            // verify the credentials and create a token for the user
+//            if (! $token = JWTAuth::attempt($credentials)) {
+//                return response()->error('Invalid credentials', 401);
+//            }
         } catch (\JWTException $e) {
             return response()->error('Could not create token', 500);
         }
