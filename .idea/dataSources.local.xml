@@ -7,6 +7,7 @@
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <introspection-schemas>*:cshomework</introspection-schemas>
     </data-source>
   </component>
 </project>
