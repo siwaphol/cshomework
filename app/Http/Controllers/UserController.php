@@ -2,52 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Dingo\Api\Routing\Helpers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 class UserController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    use Helpers;
+
     public function index()
     {
-        return $this->response->array(['nong'=>'test']);
+        $users = User::all();
+
+        return response()->success(compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->fill($request->input());
+        $user->save();
+
+        return response()->success(compact('user'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        return response()->success(compact('user'));
     }
 
     /**
@@ -70,7 +60,11 @@ class UserController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->fill($request->input());
+        $user->save();
+
+        return response()->success(compact('user'));
     }
 
     /**
@@ -81,6 +75,9 @@ class UserController extends BaseController
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+        return response()->success('');
     }
 }

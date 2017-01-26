@@ -25,10 +25,10 @@ elixir(function(mix) {
             'public/css/final.css'
         ],
         scripts = [
-            './public/js/vendor.js', './public/js/partials.js', './public/js/app.js'
+            './public/js/vendor.js', './public/js/ng-table.min.js',  './public/js/partials.js', './public/js/app.js'
         ],
         styles = [
-            './public/css/vendor.css', './public/css/app.css'
+            './public/css/vendor.css', './public/css/ng-table.min.css' ,'./public/css/app.css'
         ],
         karmaJsDir = [
             'public/js/vendor.js',

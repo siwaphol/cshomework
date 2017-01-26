@@ -5,6 +5,10 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
 		return `./views/app/pages/${viewName}/${viewName}.page.html`;
 	};
 
+	let getAdminView = (viewName) => {
+	    return `./views/app/pages/admin/${viewName}/${viewName}.page.html`;
+    };
+
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
@@ -66,6 +70,27 @@ export function RoutesConfig($stateProvider, $urlRouterProvider) {
             views: {
                 'main@': {
                     templateUrl: getView('reset-password')
+                }
+            }
+        })
+        .state('admin',{
+            abstract: true,
+            data: {},//{auth: true} would require JWT auth
+            views: {
+                header: {
+                    templateUrl: getAdminView('header')
+                },
+                footer: {
+                    templateUrl: getAdminView('footer')
+                },
+                main: {}
+            }
+        })
+        .state('admin.landing', {
+            url: '/admin',
+            views: {
+                'main@': {
+                    templateUrl: getAdminView('landing')
                 }
             }
         });
