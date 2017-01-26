@@ -1,9 +1,14 @@
 class UserTableController{
-    constructor(){
+    constructor(NgTableParams,$state){
         'ngInject';
+
+        this.NgTableParams = NgTableParams;
+        this.$state = $state;
     }
 
     $onInit(){
+        this.data = [{name: "Moroni", age: 50}];
+        this.tableParams = new this.NgTableParams({}, { dataset: this.data});
     }
 }
 
