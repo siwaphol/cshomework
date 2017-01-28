@@ -8,6 +8,12 @@ class UserTableController{
 
     $onInit(){
         this.data = [{name: "Moroni", age: 50}];
+        this.selected = [];
+        this.query = {
+            order: 'name',
+            limit: 5,
+            page: 1
+        };
         this.tableParams = new this.NgTableParams({}, { dataset: this.data});
     }
 }
